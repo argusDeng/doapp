@@ -1,3 +1,127 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container>
+<md-sidenav #sidenav mode="side" class="app-sidenav">
+  Sidenav
+</md-sidenav>
+<md-toolbar color="primary">
+
+  <md-icon (click)="sidenav.toggle()">home</md-icon> 模拟路测3.0
+
+</md-toolbar>
+
+
+
+<div class="app-content">
+  <md-card>
+    <button md-button >FLAT</button>
+    <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
+    <button md-raised-button color="primary">PRIMARY RAISED</button>
+    <button md-raised-button color="accent">ACCENT RAISED</button>
+  </md-card>
+
+  <md-card>
+    <md-checkbox> 1</md-checkbox>
+    <md-checkbox [checked]="true"> checked</md-checkbox>
+    <md-checkbox [indeterminate]="true"> interminate</md-checkbox>
+    <md-checkbox [disabled]="true"> disabled</md-checkbox>
+
+  </md-card>
+  <md-card>
+    <md-radio-button name="name">erhuan</md-radio-button>
+
+    <md-radio-button name="name">haipeng</md-radio-button>
+    <md-radio-button name="name">yiji</md-radio-button>
+
+    <md-radio-button name="pas">haipeng</md-radio-button>
+    <md-radio-button name="pas">yiji</md-radio-button>
+
+    <md-icon>home</md-icon>
+  </md-card>
+
+  <md-card >
+    <md-input-container>
+      <input mdInput placeholder="first name">
+    </md-input-container>
+
+
+    <md-input-container>
+      <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+      <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+    </md-input-container>
+
+  </md-card>
+  <md-card>
+
+    <md-list>
+      <h1 md-subheader>吃的</h1>
+      <md-list-item *ngFor="let folder of folders">
+        <md-icon md-list-icon>folder</md-icon>
+        <h4 md-line>{{folder.name}}</h4>
+        <p md-line>{{folder.updated}}</p>
+      </md-list-item>
+    </md-list>
+  </md-card>
+
+   <md-card>
+     <md-spinner class="app-spinner"></md-spinner>
+   </md-card>
+
+  <md-card>
+    <md-progress-bar mode="indeterminate"></md-progress-bar>
+
+    <md-progress-bar
+      mode="determinate"
+      [value]="progress"></md-progress-bar>
+  </md-card>
+
+  <md-card>
+
+
+    <md-tab-group>
+
+      <md-tab label="Tab 1">
+        ...
+        <h1>Some more tab content</h1>
+        <p>...</p>
+        <h1>Some more tab content</h1>
+
+        <p>...</p> 1
+
+      </md-tab>
+
+      <md-tab label="Tab 2">    ...
+
+        <h1>Some more tab content</h1>
+        <p>...</p>
+        <h1>Some more tab content</h1>
+
+        <p>...</p> 1
+
+      </md-tab>
+    </md-tab-group>
+
+  </md-card>
+
+
+  <md-card>
+    <md-menu #appmenu>
+      <button md-menu-item>Settings</button>
+      <button md-menu-item>help</button>
+
+    </md-menu>
+    <button md-icon-button [mdMenuTriggerFor]="appmenu">
+
+      menu
+    </button>
+  </md-card>
+
+  <md-card>
+
+    <md-card>
+      <p>Last dialog result: {{lastDialogResult}}</p>
+      <button md-raised-button (click)="openDialog()">DIALOG</button>
+      <button md-raised-button (click)="showSnackbar()">SNACKBAR</button>
+    </md-card>
+
+  </md-card>
+</div>
+  </md-sidenav-container>
